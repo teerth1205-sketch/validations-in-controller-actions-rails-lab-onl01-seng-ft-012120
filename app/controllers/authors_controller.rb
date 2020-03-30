@@ -13,7 +13,9 @@ class AuthorsController < ApplicationController
 
     redirect_to author_path(@author)
     else
-      render 
+      @author.errors.full_messages
+      render :new
+    end 
   end
 
   private
