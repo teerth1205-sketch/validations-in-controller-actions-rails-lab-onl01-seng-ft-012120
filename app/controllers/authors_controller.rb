@@ -10,9 +10,9 @@ class AuthorsController < ApplicationController
     
     @author = Author.new(author_params)
     
-    if @author.valid
-
-    redirect_to author_path(@author)
+    if @author.valid?
+      @author.save
+      redirect_to author_path(@author)
     else
       @author.errors.full_messages
       render :new
